@@ -105,11 +105,11 @@ jobs:
       - name: Build image
         id: build
         run: |
-          sudo $(which just) build "$(sed 's/bootc//' <<< "${IMAGE_NAME}")"
+          sudo $(which just) build "$(sed 's/-bootc//' <<< "${IMAGE_NAME}")"
 
       - name: Rechunk image
         run: |
-          sudo $(which just) rechunk "$(sed 's/bootc//' <<< "${IMAGE_NAME}")"
+          sudo $(which just) rechunk "$(sed 's/-bootc//' <<< "${IMAGE_NAME}")"
 
       - name: Login to GitHub Container Registry
         if: inputs.publish
